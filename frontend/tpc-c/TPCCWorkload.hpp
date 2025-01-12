@@ -91,7 +91,7 @@ class TPCCWorkload
    Numeric randomNumeric(Numeric min, Numeric max)
    {
       double range = (max - min);
-      double div = RAND_MAX / range;
+      double div = static_cast<double>(std::numeric_limits<u64>::max()) / range;
       return min + (leanstore::utils::RandomGenerator::getRandU64() / div);
    }
 
